@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Address } from 'src/app/models/address';
+import { AddressService } from 'src/app/services/address.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -6,7 +8,11 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnChanges {
+  listAddress: Address[] = [];
+  listMedication: string[] = [];
+  listAllergie: string[] = [];
+
   form: any = {
     firstname: null,
     lastname: null,
@@ -14,12 +20,7 @@ export class RegisterComponent implements OnInit {
     phone: null,
     email: null,
     password: null,
-    address: {
-      address: null,
-      city: null,
-      state: null,
-      zip: null,
-    },
+    address: Address,
     medicalRecord: {
       description: [null],
       medications: [null],
@@ -30,9 +31,40 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private addressService: AddressService
+  ) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    this.addMedications(changes);
+    this.addAllergies(changes);
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllAdress();
+    console.log(this.form.medicalRecord.medications);
+  }
+
+  addMedications(event: any) {
+    event.preventDefault();
+    let inputMedication = this.form.medicalRecord.medications;
+    this.listMedication.push(inputMedication);
+    this.form.medicalRecord.medications = '';
+  }
+
+  addAllergies(event: any) {
+    event.preventDefault();
+    let inputAllergies = this.form.medicalRecord.allergies;
+    this.listAllergie.push(inputAllergies);
+    this.form.medicalRecord.allergies = '';
+  }
+
+  getAllAdress() {
+    this.addressService.findAllAddress().subscribe((data: Address[]) => {
+      this.listAddress = [...data];
+      console.log(this.listAddress);
+    });
+  }
 
   onSubmit(): void {
     const {

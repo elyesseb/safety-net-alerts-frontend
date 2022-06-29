@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card card-container container-cards">
         <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-            <div class="form-group ">
+            <div class="form-group">
                 <label for="firstname">Firstname</label>
                 <input type="text" class="form-control" name="firstname" [(ngModel)]="form.firstname" required minlength="3" maxlength="20" #firstname="ngModel" />
                 <div class="alert-danger" *ngIf="firstname.errors && f.submitted">
@@ -15,6 +15,33 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" class="form-control" name="lastname" [(ngModel)]="form.lastname" required minlength="3" maxlength="20" #lastname="ngModel" />
+                <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
+                    <div *ngIf="lastname.errors?.['required']">Lastname is required</div>
+                    <div *ngIf="lastname.errors?.['minlength']">
+                        Lastname must be at least 3 characters
+                    </div>
+                    <div *ngIf="lastname.errors?.['maxlength']">
+                        Lastname must be at most 20 characters
+                    </div>
+                </div>
+            </div>
+            <div class="form-group date">
+                <label for="birthdate">Birthdate</label>
+                <input type="date" class="form-control" name="birthdate" [(ngModel)]="form.birthdate" required birthdate #birthdate="ngModel" />
+                <div class="alert-danger" *ngIf="birthdate.errors && f.submitted">
+                    <div *ngIf="birthdate.errors?.['required']">Birthdate is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="phone" class="form-control" name="phone" [(ngModel)]="form.phone" required phone #phone="ngModel" />
+                <div class="alert-danger" *ngIf="phone.errors && f.submitted">
+                    <div *ngIf="phone.errors?.['required']">Phone is required</div>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
                 <div class="alert-danger" *ngIf="email.errors && f.submitted">
@@ -25,13 +52,38 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Mot de passe</label>
                 <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
                 <div class="alert-danger" *ngIf="password.errors && f.submitted">
                     <div *ngIf="password.errors?.['required']">Password is required</div>
                     <div *ngIf="password.errors?.['minlength']">
                         Password must be at least 6 characters
                     </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <select type="address" class="form-control" name="address" [(ngModel)]="form.address" required #address="ngModel">
+                    <option *ngFor="let address of listAddress" value="address">{{ address.address }}</option>
+                </select>
+                <div class="alert-danger" *ngIf="address.errors && f.submitted">
+                    <div *ngIf="address.errors?.['required']">Address is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" [(ngModel)]="form.medicalRecord.description" required #description="ngModel" />
+                <label for="medications">Medications</label>
+                <input type="text" class="form-control" name="medications" [(ngModel)]="form.medicalRecord.medications" required #medications="ngModel" />
+                <span *ngFor="let medic of listMedication" class="text-dark">{{ medic }}</span>
+                <div class="d-flex flex-row-reverse mt-3">
+                    <button class="badge bg-primary text-white ml-2" (click)="addMedications($event)">Add</button>
+                </div>
+                <label for="allergies">Allergies</label>
+                <input type="text" class="form-control" name="allergies" [(ngModel)]="form.medicalRecord.allergies" required #allergies="ngModel" />
+                <span *ngFor="let allergie of listAllergie" class="text-dark">{{ allergie }}</span>
+                <div class="d-flex flex-row-reverse mt-3">
+                    <button class="badge bg-primary text-white ml-2" (click)="addAllergies($event)">Add</button>
                 </div>
             </div>
             <div class="form-group">

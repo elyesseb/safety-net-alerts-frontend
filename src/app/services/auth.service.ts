@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 const AUTH_API = 'http://localhost:8080/api/';
+const apiUrl = environment.AUTH_API;
 
 const httpOptions = {
   headers: new HttpHeaders().set(
     'Content-Type',
     'application/x-www-form-urlencoded'
   ),
+};
+
+const httpOptionsJson = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
 
 @Injectable({
@@ -34,19 +40,19 @@ export class AuthService {
     address: any,
     medicalRecord: any
   ): Observable<any> {
+    const body = new HttpParams()
+      .set('firstname', firstname)
+      .set('lastname', lastname)
+      .set('birthdate', birthdate)
+      .set('phone', phone)
+      .set('email', email)
+      .set('password', password)
+      .set('address', address)
+      .set('medicalRecord', medicalRecord);
     return this.http.post(
       AUTH_API + 'registration',
-      {
-        firstname,
-        lastname,
-        birthdate,
-        phone,
-        email,
-        password,
-        address,
-        medicalRecord,
-      },
-      httpOptions
+      body.toString(),
+      httpOptionsJson
     );
   }
 }
