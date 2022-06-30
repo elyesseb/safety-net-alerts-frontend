@@ -12,6 +12,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FirestationUrlComponent } from './pages/url-page/firestation-url/firestation-url.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ProfileComponent,
     FooterComponent,
     HomeComponent,
+    FirestationUrlComponent,
   ],
   imports: [
     BrowserModule,
