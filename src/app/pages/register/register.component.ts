@@ -1,5 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/models/address';
+import { MedicalRecord } from 'src/app/models/medical-record';
 import { AddressService } from 'src/app/services/address.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -8,10 +9,15 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit, OnChanges {
+export class RegisterComponent implements OnInit {
   listAddress: Address[] = [];
+  listMedicalRecord: MedicalRecord[] = [];
+
   listMedication: string[] = [];
+  newMedication: string = '';
+
   listAllergie: string[] = [];
+  newAllergie: string = '';
 
   form: any = {
     firstname: null,
@@ -22,9 +28,9 @@ export class RegisterComponent implements OnInit, OnChanges {
     password: null,
     address: Address,
     medicalRecord: {
-      description: null,
-      medications: [null],
-      allergies: [null],
+      description: 'Clean Mind !',
+      medications: ['smecta', 'smicta'],
+      allergies: ['Contre les saloupe'],
     },
   };
   isSuccessful = false;
@@ -36,37 +42,28 @@ export class RegisterComponent implements OnInit, OnChanges {
     private addressService: AddressService
   ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.addMedications(changes);
-    this.addAllergies(changes);
-  }
-
   ngOnInit(): void {
     this.getAllAdress();
     console.log(this.form);
-    console.log(this.listAddress);
-    console.log(Address);
-    
   }
 
   addMedications(event: any) {
     event.preventDefault();
-    let inputMedication = this.form.medicalRecord.medications;
-    this.listMedication.push(inputMedication);
-    this.form.medicalRecord.medications = '';
+    this.listMedication.push(this.newMedication);
+    console.log(this.listMedication.push(this.newMedication));
+    this.newMedication = '';
   }
 
   addAllergies(event: any) {
     event.preventDefault();
-    let inputAllergies = this.form.medicalRecord.allergies;
-    this.listAllergie.push(inputAllergies);
-    this.form.medicalRecord.allergies = '';
+    this.listAllergie.push(this.newAllergie);
+    console.log(this.listAllergie.push(this.newAllergie));
+    this.newAllergie = '';
   }
 
   getAllAdress() {
     this.addressService.findAllAddress().subscribe((data: Address[]) => {
       this.listAddress = [...data];
-      console.log(this.listAddress);
     });
   }
 

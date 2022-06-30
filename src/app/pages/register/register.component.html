@@ -3,28 +3,16 @@
         <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="firstname">Firstname</label>
-                <input type="text" class="form-control" name="firstname" [(ngModel)]="form.firstname" required minlength="3" maxlength="20" #firstname="ngModel" />
+                <input type="text" class="form-control" name="firstname" [(ngModel)]="form.firstname" required #firstname="ngModel" />
                 <div class="alert-danger" *ngIf="firstname.errors && f.submitted">
                     <div *ngIf="firstname.errors?.['required']">Firstname is required</div>
-                    <div *ngIf="firstname.errors?.['minlength']">
-                        Firstname must be at least 3 characters
-                    </div>
-                    <div *ngIf="firstname.errors?.['maxlength']">
-                        Firstname must be at most 20 characters
-                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastname">Lastname</label>
-                <input type="text" class="form-control" name="lastname" [(ngModel)]="form.lastname" required minlength="3" maxlength="20" #lastname="ngModel" />
+                <input type="text" class="form-control" name="lastname" [(ngModel)]="form.lastname" required #lastname="ngModel" />
                 <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
                     <div *ngIf="lastname.errors?.['required']">Lastname is required</div>
-                    <div *ngIf="lastname.errors?.['minlength']">
-                        Lastname must be at least 3 characters
-                    </div>
-                    <div *ngIf="lastname.errors?.['maxlength']">
-                        Lastname must be at most 20 characters
-                    </div>
                 </div>
             </div>
             <div class="form-group date">
@@ -36,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="phone" class="form-control" name="phone" [(ngModel)]="form.phone" required phone #phone="ngModel" />
+                <input type="tel" class="form-control" name="phone" [(ngModel)]="form.phone" required phone #phone="ngModel" />
                 <div class="alert-danger" *ngIf="phone.errors && f.submitted">
                     <div *ngIf="phone.errors?.['required']">Phone is required</div>
                 </div>
@@ -53,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+                <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required password minlength="6" #password="ngModel" />
                 <div class="alert-danger" *ngIf="password.errors && f.submitted">
                     <div *ngIf="password.errors?.['required']">Password is required</div>
                     <div *ngIf="password.errors?.['minlength']">
@@ -63,14 +51,14 @@
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <select type="address" class="form-control" name="address" [(ngModel)]="form.address" required #address="ngModel">
+                <select class="form-control" name="address" [(ngModel)]="form.address" required address #address="ngModel">
                     <option *ngFor="let address of listAddress" [ngValue]="address">{{ address.address }}</option>
                 </select>
                 <div class="alert-danger" *ngIf="address.errors && f.submitted">
                     <div *ngIf="address.errors?.['required']">Address is required</div>
                 </div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" class="form-control" name="description" [(ngModel)]="form.medicalRecord.description" #description="ngModel" />
                 <label for="medications">Medications</label>
@@ -80,12 +68,12 @@
                     <button class="badge bg-primary text-white ml-2" (click)="addMedications($event)">Add</button>
                 </div>
                 <label for="allergies">Allergies</label>
-                <input type="text" class="form-control" name="allergies" [(ngModel)]="form.medicalRecord.allergies" required #allergies="ngModel" />
+                <input type="text" class="form-control" name="allergies" [(ngModel)]="form.medicalRecord.allergies" #allergies="ngModel" />
                 <span *ngFor="let allergie of listAllergie" class="text-dark">{{ allergie }}</span>
                 <div class="d-flex flex-row-reverse mt-3">
                     <button class="badge bg-primary text-white ml-2" (click)="addAllergies($event)">Add</button>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group">
                 <button class="btn btn-primary btn-block">Register</button>
             </div>

@@ -38,7 +38,7 @@ export class AuthService {
     email: string,
     password: string,
     address: any,
-    medicalRecord: any
+    medicalRecord: any,
   ): Observable<any> {
     return this.http.post(
       AUTH_API + 'registration',
