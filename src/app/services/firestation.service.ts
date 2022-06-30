@@ -14,7 +14,7 @@ export class FirestationService {
   constructor(private http : HttpClient) { }
 
   findAll() : Observable<Firestation[]> {
-    return this.http.get<Firestation[]>(`${this.apiUrl}/firestation`);
+    return this.http.get<Firestation[]>(`${this.apiUrl}/firestation/all`);
   }
 
   findPersonsByStationName(params: any) : Observable<any> {
