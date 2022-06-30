@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit, OnChanges {
     console.log(this.form);
     console.log(this.listAddress);
     console.log(Address);
+    
   }
 
   addMedications(event: any) {

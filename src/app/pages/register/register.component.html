@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label for="address">Address</label>
                 <select type="address" class="form-control" name="address" [(ngModel)]="form.address" required #address="ngModel">
-                    <option *ngFor="let address of listAddress" value={{address.address}}>{{ address.address }}</option>
+                    <option *ngFor="let address of listAddress" [ngValue]="address">{{ address.address }}</option>
                 </select>
                 <div class="alert-danger" *ngIf="address.errors && f.submitted">
                     <div *ngIf="address.errors?.['required']">Address is required</div>
