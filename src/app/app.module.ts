@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-medical-assist.component';
 import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component';
+import { ChildAlertComponent } from './pages/child-alert/child-alert.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component
     PageNotFoundComponent,
     BoardMedicalAssistComponent,
     MailByCityComponent,
+    ChildAlertComponent,
   ],
   imports: [
     BrowserModule,
