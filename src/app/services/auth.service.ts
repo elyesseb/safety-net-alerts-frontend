@@ -14,7 +14,7 @@ const httpOptions = {
 };
 
 const httpOptionsJson = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
@@ -40,18 +40,18 @@ export class AuthService {
     address: any,
     medicalRecord: any
   ): Observable<any> {
-    const body = new HttpParams()
-      .set('firstname', firstname)
-      .set('lastname', lastname)
-      .set('birthdate', birthdate)
-      .set('phone', phone)
-      .set('email', email)
-      .set('password', password)
-      .set('address', address)
-      .set('medicalRecord', medicalRecord);
     return this.http.post(
       AUTH_API + 'registration',
-      body.toString(),
+      {
+        firstname,
+        lastname,
+        birthdate,
+        phone,
+        email,
+        password,
+        address,
+        medicalRecord,
+      },
       httpOptionsJson
     );
   }

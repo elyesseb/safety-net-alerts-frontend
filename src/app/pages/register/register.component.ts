@@ -20,9 +20,9 @@ export class RegisterComponent implements OnInit, OnChanges {
     phone: null,
     email: null,
     password: null,
-    address: Address,
+    address: { ...Address },
     medicalRecord: {
-      description: [null],
+      description: null,
       medications: [null],
       allergies: [null],
     },
@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit, OnChanges {
     private authService: AuthService,
     private addressService: AddressService
   ) {}
+
   ngOnChanges(changes: SimpleChanges): void {
     this.addMedications(changes);
     this.addAllergies(changes);
@@ -42,7 +43,9 @@ export class RegisterComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.getAllAdress();
-    console.log(this.form.medicalRecord.medications);
+    console.log(this.form);
+    console.log(this.listAddress);
+    console.log(Address);
   }
 
   addMedications(event: any) {

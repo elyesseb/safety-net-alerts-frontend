@@ -72,9 +72,9 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" name="description" [(ngModel)]="form.medicalRecord.description" required #description="ngModel" />
+                <input type="text" class="form-control" name="description" [(ngModel)]="form.medicalRecord.description" #description="ngModel" />
                 <label for="medications">Medications</label>
-                <input type="text" class="form-control" name="medications" [(ngModel)]="form.medicalRecord.medications" required #medications="ngModel" />
+                <input type="text" class="form-control" name="medications" [(ngModel)]="form.medicalRecord.medications" #medications="ngModel" />
                 <span *ngFor="let medic of listMedication" class="text-dark">{{ medic }}</span>
                 <div class="d-flex flex-row-reverse mt-3">
                     <button class="badge bg-primary text-white ml-2" (click)="addMedications($event)">Add</button>
