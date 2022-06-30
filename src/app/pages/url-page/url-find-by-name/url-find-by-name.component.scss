@@ -1,0 +1,13 @@
+.card{
+    color: black;
+    span{
+        display: flex;
+    }
+    span p{
+        font-weight: bold;
+    }
+    .flex-column{
+        display: flex;
+        flex-direction: column;
+    }
+}

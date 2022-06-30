@@ -1,6 +1,14 @@
 <div class="form-group">
     <label for="station">Station</label>
-    <select class="form-control" name="station">
-        <option *ngFor="let station of listStation" [ngValue]="station.id" onchange="findPersonsByStationName(getRequestParams(station.id))">{{station.id}}, {{station.name}}</option>
+    <select class="form-control" name="station" (change)="findPersonsByStationName($event)">
+        <option *ngFor="let station of listStation" [ngValue]="station.id">{{station.id}}</option>
     </select>
 </div>
+
+<div>
+    <ul *ngFor="let user of respList">
+        <li>Firstname : {{user.firstname}}, Lastname : {{user.lastname}}, Address : {{user.address.address}}, Phone : {{user.phone}}</li>
+    </ul>
+</div>
+
+<button class="btn btn-primary" routerLink="/urls2">Next Url</button>

@@ -1,0 +1,25 @@
+<div class="form-group">
+    <div class="md-3">
+        <label for="firstname">Firstname</label>
+        <input type="text" name="firstname" id="firstname" (change)="firstnameValue($event)">
+    </div>
+    <div class="md-3">
+        <label for="lastname">Lastname</label>
+        <input type="text" name="lastname" id="lastname" (change)="lastnameValue($event)">
+    </div>
+    <button class="btn btn-primary" (click)="findUsersByFirstAndOrLastName(firstname, lastname)">Submit</button>
+</div>
+
+<div class="card" *ngFor="let user of userFound">
+
+    <span><p>Lastname : </p>{{user.lastname}}</span>
+    <span><p>Address : </p> {{user.address.addressId.address}}</span>
+    <span><p>Birthdate : </p> {{user.birthdate}}</span>
+    <span><p>Email : </p> {{user.email}}</span>
+    <div class="flex-column">
+        <h5>Medical-Records :</h5>
+        <span><p>Allergies : </p> {{user.medicalRecord.allergies}}</span>
+        <span><p>Medications : </p> {{user.medicalRecord.medications}}</span>
+    </div>
+
+</div>

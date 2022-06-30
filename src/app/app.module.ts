@@ -16,6 +16,8 @@ import { FirestationUrlComponent } from './pages/url-page/firestation-url/firest
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-medical-assist.component';
 import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component';
+import { FirestationsComponent } from './pages/firestations/firestations.component';
+import { UrlFindByNameComponent } from './pages/url-page/url-find-by-name/url-find-by-name.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component
     PageNotFoundComponent,
     BoardMedicalAssistComponent,
     MailByCityComponent,
+    FirestationsComponent,
+    UrlFindByNameComponent,
   ],
   imports: [
     BrowserModule,

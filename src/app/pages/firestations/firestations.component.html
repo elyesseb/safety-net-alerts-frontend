@@ -1,0 +1,7 @@
+<div class="container" *ngFor="let fs of listFirestations">
+    <div class="firestations">
+        <span>Firestation n° : {{fs.id}}</span>
+        <span>Station n° :{{fs.station.id}}</span>
+        <span>Address : {{fs.address.addressId.address}}</span>
+    </div>
+</div>

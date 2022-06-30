@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Station } from 'src/app/models/station';
+import { Users } from 'src/app/models/users';
 import { FirestationService } from 'src/app/services/firestation.service';
 import { StationService } from 'src/app/services/station.service';
 
@@ -12,6 +13,7 @@ import { StationService } from 'src/app/services/station.service';
 export class FirestationUrlComponent implements OnInit {
   stationId!: number;
   listStation!: Station[];
+  respList!: Users[];
 
   constructor(
     private firestationService: FirestationService,
@@ -20,20 +22,21 @@ export class FirestationUrlComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllStation();
-    this.findPersonsByStationName();
+    
   }
-
+  
   findAllStation() {
-    this.stationService.findAll().subscribe((data) => {
-      this.listStation = [...data];
+    this.stationService.findAll().subscribe((data: Station[]) => {
+      this.listStation = data;
     })
   }
   
-  findPersonsByStationName() {
-    const params = this.getRequestParams(2);
+  findPersonsByStationName(e: any) {
+    const params = this.getRequestParams(e.target.value);
     this.firestationService.findPersonsByStationName(params).subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
+        this.respList = data;
       }
     )
   }
