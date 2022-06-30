@@ -9,9 +9,9 @@ import { TokenStorageService } from './services/token-storage.service';
 export class AppComponent {
   private roles: string[] = [];
   isLoggedIn = false;
-  showMediclAssistBoard = false;
+  showMedicalAssistBoard = false;
   showModeratorBoard = false;
-  firstname!: string;
+  sub?: string;
   navbarOpen?: boolean;
 
   constructor(private tokenStorageService: TokenStorageService) {}
@@ -23,12 +23,10 @@ export class AppComponent {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      // this.showMediclAssistBoard = this.roles.includes('MEDICAL_ASSIST');
-      // this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showMedicalAssistBoard = this.roles.includes('MEDICAL_ASSIST');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
-      this.firstname = user.firstname;
-      console.log(this.tokenStorageService.getUser());
-      
+      this.sub = user.sub;
     }
   }
 
