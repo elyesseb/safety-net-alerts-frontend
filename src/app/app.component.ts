@@ -11,7 +11,7 @@ export class AppComponent {
   isLoggedIn = false;
   showMediclAssistBoard = false;
   showModeratorBoard = false;
-  firstname?: string;
+  firstname!: string;
   navbarOpen?: boolean;
 
   constructor(private tokenStorageService: TokenStorageService) {}
@@ -23,10 +23,12 @@ export class AppComponent {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showMediclAssistBoard = this.roles.includes('MEDICAL_ASSIST');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      // this.showMediclAssistBoard = this.roles.includes('MEDICAL_ASSIST');
+      // this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.firstname = user.firstname;
+      console.log(this.tokenStorageService.getUser());
+      
     }
   }
 
