@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="station">Station</label>
     <select class="form-control" name="station">
-        <option *ngFor="let station of listStation" [ngValue]="station.id">{{station.id}}, {{station.name}}</option>
+        <option *ngFor="let station of listStation" [ngValue]="station.id" onchange="findPersonsByStationName(getRequestParams(station.id))">{{station.id}}, {{station.name}}</option>
     </select>
 </div>

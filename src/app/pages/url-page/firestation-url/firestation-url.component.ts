@@ -33,7 +33,7 @@ export class FirestationUrlComponent implements OnInit {
     const params = this.getRequestParams(2);
     this.firestationService.findPersonsByStationName(params).subscribe(
       (data) => {
-        //console.log(data);
+        console.log(data);
       }
     )
   }
