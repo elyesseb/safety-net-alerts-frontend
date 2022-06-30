@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit, OnChanges {
     phone: null,
     email: null,
     password: null,
-    address: { ...Address },
+    address: Address,
     medicalRecord: {
       description: null,
       medications: [null],
