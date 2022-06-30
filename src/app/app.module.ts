@@ -12,6 +12,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-medical-assist.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ProfileComponent,
     FooterComponent,
     HomeComponent,
+    PageNotFoundComponent,
+    BoardMedicalAssistComponent,
   ],
   imports: [
     BrowserModule,
