@@ -29,12 +29,13 @@ export class TokenStorageService {
   }
 
   public getUser(): any {
-    const user = localStorage.getItem(USER_KEY);
-    console.log(user);
+    // const user = localStorage.getItem(USER_KEY);
+    // console.log(user);
     const decoded = this.getDecodedAccessToken(localStorage.getItem(TOKEN_KEY));
-    console.log(decoded);
+    // console.log(decoded);
 
     if (decoded) {
+      console.log(decoded.roles);
       return decoded;
     }
 
