@@ -23,19 +23,11 @@ export class MedicalAssistGuard implements CanActivate {
     | boolean
     | UrlTree {
     const role = this.token.getUser().roles;
+    console.log(role);
+
     const medicalAssist = 'MEDICAL_ASSIST';
-    let result = '';
 
-    for (let i = 0; i < role.length; i++) {
-      if (role[i] === medicalAssist) {
-        return true;
-      } else {
-        this.router.navigate(['notfound']);
-        return false;
-      }
-    }
-
-    if (result === medicalAssist) {
+    if (role && role[0] === medicalAssist) {
       return true;
     } else {
       this.router.navigate(['notfound']);

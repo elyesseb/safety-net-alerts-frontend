@@ -14,6 +14,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-medical-assist.component';
+import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-
     HomeComponent,
     PageNotFoundComponent,
     BoardMedicalAssistComponent,
+    MailByCityComponent,
   ],
   imports: [
     BrowserModule,
