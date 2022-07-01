@@ -1,0 +1,24 @@
+<div class="list row pt-3">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by address" [(ngModel)]="address" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary bk-color" type="button" (click)="searchChild()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h4>List children by address</h4>
+        <ul class="list-group">
+            <li class="list-group-item container-cards hover text-dark" *ngFor="let child of childs; let i = index">
+                <p>Firstname : <b>{{ child.firstname }}</b> <br />
+                    Lastname : <b>{{ child.lastname }}</b> <br />
+                    Born in : <b>{{ child.birthdate }}</b> </p>
+            </li>
+
+        </ul>
+    </div>
+</div>

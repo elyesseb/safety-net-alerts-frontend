@@ -8,6 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MedicalAssistGuard } from './guards/medical-assist.guard';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-medical-assist.component';
+import { ChildAlertComponent } from './pages/child-alert/child-alert.component';
 import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component';
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
     children: [
       { path: 'medical-assist', component: BoardMedicalAssistComponent },
       { path: 'mail-by-city', component: MailByCityComponent },
+      { path: 'child-alert', component: ChildAlertComponent },
     ],
   },
   { path: 'notfound', component: PageNotFoundComponent },

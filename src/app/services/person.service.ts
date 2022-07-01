@@ -13,4 +13,8 @@ export class PersonService {
   findByCity(city: any): Observable<any> {
     return this.http.get<any>(`${baseUrl}/communityEmail?city=${city}`);
   }
+
+  getChildByAddress(address: any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/childAlerts?address=${address}`);
+  }
 }
