@@ -1,9 +1,34 @@
 <div class="container text-dark" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron container-cards">
+    <div class="jumbotron container-cards">
         <h3>
-            <strong>{{ currentUser.sub }}</strong> Profile
+            Profile  : <strong>{{ userInfo?.firstname }} {{ userInfo?.lastname }}</strong>
         </h3>
-    </header>
+    </div>
+    <div class="container">
+        <div class="display-info">
+            <div class="display-info-div">
+                <h6>Address :</h6>
+                <span>{{ userInfo?.address.addressId.address }}</span>
+                <span>{{ userInfo?.address.addressId.city }}</span>
+                <span>{{ userInfo?.address.addressId.state }}</span>
+                <span>{{ userInfo?.address.addressId.zip }}</span>
+            </div>
+            <div class="display-info-div">
+                <h6>Birthdate :</h6>
+                <span>{{ userInfo?.birthdate }}</span>
+            </div>
+            <div class="display-info-div">
+                <h6>Phone :</h6>
+                <span>{{ userInfo?.phone }}</span>
+            </div>
+            <div class="display-info-div">
+                <h6>Medical-Records :</h6>
+                <span>Description : {{ userInfo?.medicalRecord.description }}</span>
+                <span>Allergies : {{ userInfo?.medicalRecord.allergies }}</span>
+                <span>Medications : {{ userInfo?.medicalRecord.medications }}</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <ng-template #loggedOut>

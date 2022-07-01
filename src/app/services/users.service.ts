@@ -14,4 +14,8 @@ export class UsersService {
   findUsersByFirstAndOrLastName(params: any) : Observable<any> {
     return this.http.get<any>(`http://localhost:8080/person/personInfo`, {params})
   }
+
+  findUserByEmail(params: any) : Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/person/getPerson`, {params});
+  }
 }
