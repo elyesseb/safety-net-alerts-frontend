@@ -12,9 +12,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FirestationUrlComponent } from './pages/url-page/firestation-url/firestation-url.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BoardMedicalAssistComponent } from './pages/board-medical-assist/board-medical-assist.component';
 import { MailByCityComponent } from './pages/mail-by-city/mail-by-city.component';
+import { FirestationsComponent } from './pages/firestations/firestations.component';
+import { UrlFindByNameComponent } from './pages/url-page/url-find-by-name/url-find-by-name.component';
 import { ChildAlertComponent } from './pages/child-alert/child-alert.component';
 
 @NgModule({
@@ -26,10 +29,13 @@ import { ChildAlertComponent } from './pages/child-alert/child-alert.component';
     ProfileComponent,
     FooterComponent,
     HomeComponent,
+    FirestationUrlComponent,
     PageNotFoundComponent,
     BoardMedicalAssistComponent,
     MailByCityComponent,
     ChildAlertComponent,
+    FirestationsComponent,
+    UrlFindByNameComponent,
   ],
   imports: [
     BrowserModule,

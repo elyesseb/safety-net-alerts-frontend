@@ -1,0 +1,12 @@
+.display-info{
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    &-div{
+        margin: 10px auto;
+        &:last-child{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
